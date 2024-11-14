@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <!-- Title -->
+    <title>Famie - Farm Services &amp; Organic Food Store | Shop</title>
+    <!-- Favicon -->
+    <link rel="icon" href="img/core-img/favicon.ico">
+    <!-- Core Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+</head>
+
+<body>
+    <!-- Preloader -->
+    <div class="preloader d-flex align-items-center justify-content-center">
+        <div class="spinner"></div>
+    </div>
+    {{{body}}}
+    <!-- ##### All Javascript Files ##### -->
+    <script src="https://js.paystack.co/v1/inline.js"></script>
+    <script>
+        const checkoutBtn = document.getElementById('checkoutBtn');
+
+        checkoutBtn.addEventListener("click", payWithPaystack, false);
+
+        function payWithPaystack(e) {
+            alert(document.getElementById("checkoutAmount").value)
+            e.preventDefault();
+
+            let handler = PaystackPop.setup({
+
+                key: 'pk_test_eeb03169823d20203b075d2e0cc49bec42a645f8', // public key
+
+                first_name: "john",
+
+                last_name: "doe",
+
+                email: "johndoe@gmail.com",
+
+                amount: document.getElementById("checkoutAmount").value * 100,
+
+                ref: '' + Math.floor((Math.random() * 1000000000) + 1), // generates a pseudo-unique reference. Please replace with a reference you generated. Or remove the line entirely so our API will generate one for you
+
+                // label: "Optional string that replaces customer email"
+
+                onClose: function () {
+
+                    alert('Window closed.');
+
+                },
+
+                callback: function (response) {
+
+                    let message = 'Payment complete! Reference: ' + response.reference;
+
+                    alert(message);
+
+                    window.location = "http://localhost:3000/empty-cart"
+
+                }
+
+            });
+
+            handler.openIframe();
+
+        }
+    </script>
+    <script>
+        let loginForm = document.getElementById("loginForm")
+        loginForm.addEventListener('submit', (e) => {
+            var v = grecaptcha.getResponse();
+            if (v.length == 0) {
+                e.preventDefault()
+                document.getElementById('captcha').className = "text-danger"
+                document.getElementById('captcha').innerHTML = "You can't leave Captcha Code empty";
+                return false;
+            }
+            else {
+                document.getElementById('captcha').className = "text-success"
+                document.getElementById('captcha').innerHTML = "Captcha completed";
+                return true;
+            }
+        })
+
+    </script>
+    <!-- jquery 2.2.4  -->
+    <script src="js/jquery.min.js"></script>
+    <!-- Popper js -->
+    <script src="js/popper.min.js"></script>
+    <!-- Bootstrap js -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- Owl Carousel js -->
+    <script src="js/owl.carousel.min.js"></script>
+    <!-- Classynav -->
+    <script src="js/classynav.js"></script>
+    <!-- Wow js -->
+    <script src="js/wow.min.js"></script>
+    <!-- Sticky js -->
+    <script src="js/jquery.sticky.js"></script>
+    <!-- Magnific Popup js -->
+    <script src="js/jquery.magnific-popup.min.js"></script>
+    <!-- Scrollup js -->
+    <script src="js/jquery.scrollup.min.js"></script>
+    <!-- Jarallax js -->
+    <script src="js/jarallax.min.js"></script>
+    <!-- Jarallax Video js -->
+    <script src="js/jarallax-video.min.js"></script>
+    <!-- Active js -->
+    <script src="js/active.js"></script>
+</body>
+
+</html>

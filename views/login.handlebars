@@ -1,0 +1,25 @@
+{{>nav}}
+<div class="container">
+    <!-- Form Area -->
+    <div class="contact-form-area mt-5">
+        <h2 style="color:rgb(119, 177, 34)" class="mb-3">Login</h2>
+        <form action="/login" method="post" id="loginForm">
+            {{>messages}}
+            <div class="row">
+                <div class="col-md-8">
+                    <input type="text" class="form-control" name="username" placeholder="Username" required>
+                </div>
+                <div class="col-md-8">
+                    <input type="password" class="form-control" name="password" placeholder="Password" required>
+                </div>
+                <div class="col-12">
+                    <span id="captcha" class="text-danger"></span>
+                    <div class="g-recaptcha" data-sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"></div>
+                </div>
+                <div class="col-12">
+                    <button type="submit" class="btn famie-btn">Login</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

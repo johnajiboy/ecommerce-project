@@ -1,0 +1,31 @@
+<div class="container">
+    <!-- Form Area -->
+    <div class="contact-form-area mt-5">
+        <h2 style="color:rgb(119, 177, 34)" class="mb-3">Register Product</h2>
+        <form action="/admin" method="post" enctype="multipart/form-data">
+            <div class="row">
+                <div class="col-lg-8">
+                    <input type="text" class="form-control" name="name" placeholder="Product Name" required>
+                </div>
+                <div class="col-lg-8">
+                    <input type="number" class="form-control" name="price" placeholder="Product Price" required>
+                </div>
+                <div class="col-lg-8">
+                    <select name="category" id="" class="form-control">
+                        <option value="Freshy Fruits">Freshy Fruits</option>
+                        <option value="Rice and Corn">Rice and Corn</option>
+                        <option value="Meat and Eggs">Meat and Eggs</option>
+                        <option value="Milk and Cheese">Milk and Cheese</option>
+                    </select>
+                </div>
+                <div class="col-lg-8">
+                    <input type="file" name="file" id="">
+                    <small class="form-text text-muted">Max Size 3mb</small>
+                </div>
+                <div class="col-12">
+                    <button type="submit" class="btn famie-btn">Register</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
